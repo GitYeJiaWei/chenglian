@@ -19,10 +19,6 @@ public class HomeFragment extends BaseFragment
 {
 
 
-    @BindView(R.id.gv)
-    GridView gridView;
-
-
     public static HomeFragment newInstance()
     {
         return new HomeFragment();

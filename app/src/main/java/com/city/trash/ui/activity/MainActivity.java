@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -50,9 +51,7 @@ public class MainActivity extends UHFBaseActivity
     private ListView mDrawerList;
     private View headerView;
     private View mNetWorkTips;
-    public String address;//地址
     public BaseBean<LoginBean> mUserInfo;
-    private RecyclerView recyclerView;
 
     private int pressKey;
 
@@ -78,10 +77,9 @@ public class MainActivity extends UHFBaseActivity
         }
         initview();
         selectItem(0);
-
     }
 
-
+    //网络检测
     @Override
     protected void handleNetWorkTips(boolean has)
     {
@@ -100,12 +98,14 @@ public class MainActivity extends UHFBaseActivity
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mDrawerList = findViewById(R.id.left_drawer);
 
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        //官方导航栏
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
         {
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        actionBar.show();
 
         headerView = LayoutInflater.from(this).inflate(R.layout.layout_header, mDrawerList, false);
         mDrawerList.addHeaderView(headerView);
@@ -129,6 +129,7 @@ public class MainActivity extends UHFBaseActivity
 
     /**
      * The click listener for ListView in the navigation drawer
+     * 点击左侧抽屉的item
      */
     private class DrawerItemClickListener implements ListView.OnItemClickListener
     {
@@ -195,7 +196,7 @@ public class MainActivity extends UHFBaseActivity
 
         mDrawerList.setItemChecked(position, true);
         setTitle(mOptionTitles[position]);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null && position == 0)
         {
             actionBar.setHomeAsUpIndicator(R.mipmap.button_daohang);
@@ -222,7 +223,7 @@ public class MainActivity extends UHFBaseActivity
     {
         mDrawerList.setItemChecked(0, true);
         setTitle(mOptionTitles[0]);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
         {
             actionBar.setHomeAsUpIndicator(R.mipmap.button_daohang);

@@ -2,7 +2,6 @@ package com.city.trash.ui.adapter;
 
 
 
-import com.city.trash.AppApplication;
 import com.city.trash.R;
 
 import java.util.ArrayList;
@@ -21,14 +20,10 @@ public class DrawerListContent {
     public static Map<String, DrawerItem> ITEM_MAP = new HashMap<>();
 
     static {
-       /* addItem(new DrawerItem("1", AppApplication.getApplication().getResources().getString(R.string.info_bind), R.mipmap.icon_bangding));
-        addItem(new DrawerItem("2", AppApplication.getApplication().getResources().getString(R.string.in_ware), R.mipmap.icon_ruku));
-        addItem(new DrawerItem("3", AppApplication.getApplication().getResources().getString(R.string.out_ware), R.mipmap.icon_chuku));
-        addItem(new DrawerItem("4", AppApplication.getApplication().getResources().getString(R.string.record_find), R.mipmap.icon_chaxu));
-*//*        addItem(new DrawerItem("5", AppApplication.getApplication().getResources().getString(R.string.foreign_in_ware), R.mipmap.icon_foreign_in_ware));*//*
-        addItem(new DrawerItem("5", AppApplication.getApplication().getResources().getString(R.string.default_version), R.mipmap.icon_version));
-        addItem(new DrawerItem("6", AppApplication.getApplication().getResources().getString(R.string.logout), R.mipmap.icon_logout));
-*/    }
+        addItem(new DrawerItem("1", "清运人员", R.mipmap.ic_launcher));
+        addItem(new DrawerItem("2", "admin", R.mipmap.ic_launcher));
+        addItem(new DrawerItem("3", "17759053913", R.mipmap.ic_launcher));
+        }
 
     /**
      * Method to add a new item

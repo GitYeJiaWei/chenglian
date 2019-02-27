@@ -79,7 +79,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             return;
         }
         String message = "";
-        if (baseBean.success()){
+        if (baseBean.getStatus()==0){
             message = "登陆成功";
             ACache.get(AppApplication.getApplication()).put(USER_NAME,txtMobi.getText().toString());
             ACache.get(AppApplication.getApplication()).put(PASS_WORD,txtPassword.getText().toString());
@@ -88,7 +88,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             startActivity(intent);
             finish();
         }else {
-            message = "账号或密码错误";
+            message = baseBean.getMessage();
         }
         ToastUtil.toast(message);
 
